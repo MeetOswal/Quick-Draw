@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8"/>
+        <meta name="viewpoint" content="width= device-width, initial-scale=1.0"/>
+        <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
+        <title>Canvas</title>
+
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+	    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+	    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    
+        <script>
+            toggleState1 = 0;
+            function backgroundChange1(id){
+                var elementButton = document.getElementById(id);
+
+             if(toggleState1 == 0 ){
+                elementButton.style.cssText='border-radius: 20px; background: green ; text-align: center; font-size: 20px ; font-family:Times New Roman; font-weight:bold;'
+                toggleState1 = 1;
+                
+            }
+            else{
+                elementButton.style.cssText='border-radius: 20px; background: red; text-align: center; font-size: 20px ; font-family:Times New Roman; font-weight:bold;'
+                toggleState1 = 0
+            }
+            }
+
+            toggleState2 = 0;
+            function backgroundChange2(id){
+                var elementButton = document.getElementById(id);
+
+             if(toggleState2 == 0 ){
+                elementButton.style.cssText='border-radius: 20px; background: green ; text-align: center; font-size: 20px ; font-family:Times New Roman; font-weight:bold;'
+                toggleState2 = 1;
+                
+            }
+            else{
+                elementButton.style.cssText='border-radius: 20px; background: blue; text-align: center; font-size: 20px ; font-family:Times New Roman; font-weight:bold;'
+                toggleState2 = 0;
+            }
+            }            
+            </script>
+
+        <style>
+            body{
+                box-sizing: border-box;
+            }
+            .canvas{
+                border: 2px solid black;
+                padding-left: 0px;
+                padding-right: 0px;
+                margin-left: auto;
+                margin-right: auto;
+                background-image: url("https://i.pinimg.com/originals/bf/5f/a2/bf5fa20a0d715346b647572055e00ee7.jpg");
+                display:block;
+
+            }
+            body, html{
+                height: 100%;
+                margin: 0;
+            }
+
+            .bg{
+                background-image: url("https://i.pinimg.com/originals/d9/14/60/d914606815efc7126aa93a433133b206.jpg");
+                height: 100%;
+                background-position: center;
+                background-repeat: inherit;
+                background-size: cover;
+            }
+
+            ul li{
+                margin-bottom: 24px;
+            }
+           
+        </style>
+    </head>
+    <body>
+        <div class="bg">
+            <div class="container">
+                <div class="row-mt-6 shadow " style=" padding-bottom: 15px ;color: blue; text-align: center; font-size: 40px; font-weight:bold;">
+                    Play The Game
+                </div>
+                <div class="row mt-2 ">
+                    <div class="col-sm-8 shadow" style="text-align: left;" >
+                        <canvas class="canvas" id="canvas" height="500px" width="500px"></canvas>
+                    </div>
+                    <div class="col-sm-4 shadow">
+                       
+                        <div style="text-align: center; margin-top: 200px;">
+                            <button class="pad" id="Confirm" onclick="backgroundChange1(this.id)" style="border-radius: 20px; background:red; text-align: center; font-size: 20px ; font-family:Times New Roman; font-weight:bold; ">
+                                Confirm Selection
+                            </button>
+                        </div>
+
+                        <div style="text-align: center; margin-top: 20px;">
+                            <button class="pad" id="Clear" onclick="backgroundChange2(this.id)" style="border-radius: 20px; background:blue; text-align: center; font-size: 20px ; font-family:Times New Roman; font-weight:bold; ">
+                                Clear Canvas
+                            </button>
+                        </div>
+                        
+                    </div>
+                </div>
+                
+            </div>
+        
+        </div>
+        <script>
+            window.addEventListener("load", ()=> {
+                const canvas = document.querySelector("canvas");
+                const ctx = canvas.getContext("2d");
+
+                // variable
+                let painting = false;
+
+                function startPosition(){
+                    painting = true;
+                    draw(event);
+                }
+                
+                function finishiedPosition(){
+                    painting = false;
+                    ctx.beginPath();
+                }
+                
+                function draw(event){
+                    if(!painting) return;
+                    ctx.lineWidth = 5;
+                    ctx.lineCap = "round";
+
+                    ctx.lineTo(event.clientX-363,event.clientY-80);
+                    ctx.stroke();
+                    ctx.beginPath();
+                    ctx.moveTo(event.clientX-363,event.clientY-80);
+
+                }
+
+                canvas.addEventListener("mousedown", startPosition);
+                canvas.addEventListener("mouseup",finishiedPosition);
+                canvas.addEventListener("mousemove", draw);
+            })
+
+           
+        </script>
+
+       
+    </body>
+</html>
