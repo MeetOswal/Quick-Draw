@@ -1,0 +1,130 @@
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+	    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+	    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+<body>
+    <div class="bg">
+        <div class="container">
+            <div class="row-mt-6 shadow " style=" padding-bottom: 15px ;color: blue; text-align: center; font-size: 40px; font-weight:bold;">
+                Draw Inside The Canvas
+            </div>
+            <div class="row mt-2 ">
+                <div class="col-sm-3 shadow">
+                        <p style="background-color: blue; text-align: center; font-size: large; font-weight: bold; color:white;">Steps to Play</p>
+                
+                            <ul >
+                                <li><h6>Choose any of the lables provided on the right</h6>  </li>
+                                <li><h6>Draw inside the canvas area</h6> </li>
+                                <li><h6>Press "Confirm Selection"</h6> </li>
+                                <li><h6>If you make any mistake during the drawing press "Clear Selection"</h6> </li>
+                            </ul>
+                        </p>                   
+                </div>
+
+
+                <div class="col-sm-6 shadow" id="CanvasContainer" >
+                    <canvas class="canvas" id="canvas" height="500px" width="500px"></canvas>
+                </div>
+
+
+                <div class="col-sm-3 shadow">
+                    <p style="background-color:red; text-align: center; font-size: large; font-weight: bold; color: white;">Choose From the lables</p>
+                    <div style="text-align: center; margin-top: 15px;">
+                        <button class="pad btn1" id="Sun" style="border-radius: 20px; text-align: center; font-size: 20px ; font-family:Times New Roman; font-weight:bold; ">
+                            Sun
+                        </button>
+                    </div>
+                    
+                    <div style="text-align: center; margin-top: 10px;">
+                        <button class="pad btn1" id="Flower"  style="border-radius: 20px; text-align: center; font-size: 20px ; font-family:Times New Roman; font-weight:bold; ">
+                            Flower
+                        </button>
+                    </div>
+                    
+                    <div style="text-align: center; margin-top: 10px;">
+                        <button class="pad btn1" id="Pencil"  style="border-radius: 20px; text-align: center; font-size: 20px ; font-family:Times New Roman; font-weight:bold; ">
+                            Pencil
+                        </button>
+                    </div>
+                    
+                    <div style="text-align: center; margin-top: 10px;">
+                        <button class="pad btn1" id="Umbrella" style="border-radius: 20px;  text-align: center; font-size: 20px ; font-family:Times New Roman; font-weight:bold; ">
+                            Umbrella
+                        </button>
+                    </div>
+                    
+                    <div style="text-align: center; margin-top: 10px;">
+                        <button class="pad btn1" id="House"  style="border-radius: 20px;  text-align: center; font-size: 20px ; font-family:Times New Roman; font-weight:bold; ">
+                            House
+                        </button>
+                    </div>
+                    
+                    <div style="text-align: center; margin-top: 10px;">
+                        <button class="pad btn1" id="Spoon"  style="border-radius: 20px; text-align: center; font-size: 20px ; font-family:Times New Roman; font-weight:bold; ">
+                            Spoon
+                        </button>
+                    </div>
+
+                    <div style="text-align: center; margin-top: 80px;">
+                        <button class="pad btn2" id="Confirm"  style="border-radius: 20px;border-color: blue;  text-align: center; font-size: 20px ; font-family:Times New Roman; font-weight:bold; ">
+                            Confirm Selection
+                        </button>
+                    </div>
+
+                    <div style="text-align: center; margin-top: 20px;">
+                        <button class="pad btn3" id="Clear"   style="border-radius: 20px;border-color: red;  text-align: center; font-size: 20px ; font-family:Times New Roman; font-weight:bold; ">
+                            Clear Canvas
+                        </button>
+                    </div>
+                    
+                </div>
+            </div>
+            
+        </div>
+    
+    </div>
+<style>
+    body{
+        box-sizing: border-box;
+    }
+    .canvas{
+        border: 2px solid black;
+        padding-left: 0px;
+        padding-right: 0px;
+        margin-left: auto;
+        margin-right: auto;
+        background-image: url("https://i.pinimg.com/originals/bf/5f/a2/bf5fa20a0d715346b647572055e00ee7.jpg");
+        display:block;
+
+    }
+    body, html{
+        height: 100%;
+        margin: 0;
+    }
+
+    .bg{
+        background-image: url("https://i.pinimg.com/originals/d9/14/60/d914606815efc7126aa93a433133b206.jpg");
+        height: 100%;
+        background-position: center;
+        background-repeat: inherit;
+        background-size: cover;
+    }
+
+    ul li{
+        margin-bottom: 24px;
+    }
+
+    .btn1:hover{
+        background-color: aqua;
+        box-shadow: 0cm;
+    }
+    
+    .btn2:hover{
+        background-color: blue;
+    }
+
+    .btn3:hover{
+        background-color: red;
+    }
+</style>
+</body>
